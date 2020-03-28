@@ -45,9 +45,15 @@ for t in tt.split("\n"):
 def translate(x, protein=False):
     x = x.lower()
     aa = []
+
     for i in range(0, len(x)-2, 3):
-        aa.append(dec[x[i:i+3]])
+        try:
+            aa.append(dec[x[i:i+3]])
+        except KeyError:
+            print('dec["{}"] -> KeyError!'.format(x[i:i+3]))
+
     aa = ''.join(aa)
+
     if protein:
         if aa[0] != "M" or aa[-1] != "*":
             print("BAD PROTEIN")
