@@ -1,3 +1,5 @@
 .dist
 .DS_Store
 __pycache__
+COVID-19
+.ipynb_checkpoints
